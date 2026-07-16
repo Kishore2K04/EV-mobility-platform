@@ -19,8 +19,10 @@ public class SecurityConfig {
                         .requestMatchers(
                         "/",
                         "/api/health",
-                        "/api/riders/register"
-                        ).permitAll()
+                        "/api/riders/register",
+                        "/api/drivers/register"
+                        )
+                        .permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
