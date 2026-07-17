@@ -16,13 +16,14 @@ public class SecurityConfig {
         .cors(cors -> {})
         .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
+                    .requestMatchers(
                         "/",
                         "/api/health",
                         "/api/riders/register",
-                        "/api/drivers/register"
+                        "/api/drivers/register",
+                        "/api/auth/login"
                         )
-                        .permitAll()
+                    .permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
