@@ -1,8 +1,8 @@
-import Register from "./pages/driver/Register";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
 
-    return <Register />;
+    return <AppRoutes />;
 
 }
 
