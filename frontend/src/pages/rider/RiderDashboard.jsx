@@ -1,23 +1,78 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import api from "../../api/api";
+
 function RiderDashboard() {
-  return (
-    <div>
-      <h1>Welcome Rider 🚴</h1>
 
-      <button>Book Ride</button>
+    const [pickupLocation, setPickupLocation] = useState("");
+    const [destination, setDestination] = useState("");
+    const [message, setMessage] = useState("");
 
-      <br /><br />
+    async function bookRide() {
 
-      <button>Ride History</button>
+        try {
 
-      <br /><br />
+            const riderEmail = localStorage.getItem("userEmail");
 
-      <button>Profile</button>
+            const response = await api.post("/api/rides/book", {
 
-      <br /><br />
+                riderEmail,
+                pickupLocation,
+                destination
 
-      <button>Logout</button>
-    </div>
-  );
+            });
+
+            setMessage(response.data);
+
+        } catch (error) {
+
+            setMessage("Booking Failed");
+
+        }
+
+    }
+
+    return (
+
+        <div>
+
+            <h1>Welcome Rider 🚴</h1>
+
+            <input
+                type="text"
+                placeholder="Pickup Location"
+                value={pickupLocation}
+                onChange={(e) => setPickupLocation(e.target.value)}
+            />
+
+            <br /><br />
+
+            <input
+                type="text"
+                placeholder="Destination"
+                value={destination}
+                onChange={(e) => setDestination(e.target.value)}
+            />
+
+            <br /><br />
+
+            <button onClick={bookRide}>
+                Book Ride
+            </button>
+
+            <br /><br />
+
+            <h3>{message}</h3>
+
+            <br />
+
+            <Link to="/rider/profile">View Profile</Link>
+            <br /><br />
+            <Link to="/rider/history">View Ride History</Link>
+
+        </div>
+
+    );
 }
 
 export default RiderDashboard;

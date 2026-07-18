@@ -24,13 +24,13 @@ function Home() {
 
             <br/><br/>
 
-            <Link to="/rider/login">
+            <Link to="/login">
                 Rider Login
             </Link>
 
             <br/><br/>
 
-            <Link to="/driver/login">
+            <Link to="/login">
                 Driver Login
             </Link>
 

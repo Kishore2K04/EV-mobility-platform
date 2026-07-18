@@ -1,27 +1,26 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
+import Home from "./pages/home/Home";
 import Login from "./pages/auth/Login";
+import RiderRegister from "./pages/rider/Register";
 import RiderDashboard from "./pages/rider/RiderDashboard";
+import RiderProfile from "./pages/rider/RiderProfile";
+import RideHistory from "./pages/rider/RideHistory";
+import DriverRegister from "./pages/driver/Register";
 import DriverDashboard from "./pages/driver/DriverDashboard";
 
 function App() {
   return (
     <Routes>
-
-      <Route path="/" element={<Navigate to="/login" />} />
-
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
-
-      <Route
-        path="/rider/dashboard"
-        element={<RiderDashboard />}
-      />
-
-      <Route
-        path="/driver/dashboard"
-        element={<DriverDashboard />}
-      />
-
+      <Route path="/rider/register" element={<RiderRegister />} />
+      <Route path="/driver/register" element={<DriverRegister />} />
+      <Route path="/rider/dashboard" element={<RiderDashboard />} />
+      <Route path="/driver/dashboard" element={<DriverDashboard />} />
+      <Route path="/rider/profile" element={<RiderProfile />} />
+      <Route path="/rider/history" element={<RideHistory />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }

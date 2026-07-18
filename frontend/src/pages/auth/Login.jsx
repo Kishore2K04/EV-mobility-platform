@@ -11,20 +11,24 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await api.post("/auth/login", {
-        email,
-        password,
-      });
+      const response = await api.post("/api/auth/login", {
+  email,
+  password,
+});
 
-      if (response.data.role === "RIDER") {
+if (response.data.role === "RIDER") {
+    localStorage.setItem("userEmail", response.data.email);
+    localStorage.setItem("userRole", response.data.role);
     navigate("/rider/dashboard");
-    }
-    else if (response.data.role === "DRIVER") {
-        navigate("/driver/dashboard");
-    }
-    else {
-        alert("Invalid Login");
-    }
+}
+else if (response.data.role === "DRIVER") {
+    localStorage.setItem("userEmail", response.data.email);
+    localStorage.setItem("userRole", response.data.role);
+    navigate("/driver/dashboard");
+}
+else {
+    alert("Invalid Login");
+}
     } catch (error) {
       alert("Login Failed");
     }

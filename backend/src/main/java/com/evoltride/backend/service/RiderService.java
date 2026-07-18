@@ -31,4 +31,9 @@ public class RiderService {
 
         return "Registration Successful";
     }
+    public Rider getProfile(String email) {
+
+    return riderRepository.findByEmail(email).orElse(null);
+
+}
 }

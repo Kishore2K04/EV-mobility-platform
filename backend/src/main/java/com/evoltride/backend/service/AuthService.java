@@ -32,7 +32,9 @@ public class AuthService {
 
             return new LoginResponse(
                     "Login Successful",
-                    "RIDER"
+                    "RIDER",
+                    rider.get().getEmail(),
+                    rider.get().getFullName()
             );
         }
 
@@ -44,12 +46,16 @@ public class AuthService {
 
             return new LoginResponse(
                     "Login Successful",
-                    "DRIVER"
+                    "DRIVER",
+                    driver.get().getEmail(),
+                    driver.get().getFullName()
             );
         }
 
         return new LoginResponse(
                 "Invalid Credentials",
+                null,
+                null,
                 null
         );
     }
