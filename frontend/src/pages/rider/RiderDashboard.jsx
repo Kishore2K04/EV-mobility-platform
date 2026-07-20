@@ -142,6 +142,8 @@ function RiderDashboard() {
             <Link to="/rider/profile">View Profile</Link>
             <br /><br />
             <Link to="/rider/history">View Ride History</Link>
+            <br /><br />
+            <Link to="/rider/wallet">View Wallet</Link>
 
         </div>
 

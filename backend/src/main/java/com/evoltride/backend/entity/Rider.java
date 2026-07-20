@@ -23,4 +23,6 @@ public class Rider {
 
     @Column(nullable = false)
     private String password;
+
+    private Double walletBalance = 0.0;
 }

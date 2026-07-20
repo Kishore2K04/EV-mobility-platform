@@ -15,9 +15,11 @@ public class RideService {
     private static final double PER_MINUTE_RATE = 1.5;
 
     private final RideRepository rideRepository;
+    private final WalletService walletService;
 
-    public RideService(RideRepository rideRepository) {
+    public RideService(RideRepository rideRepository, WalletService walletService) {
         this.rideRepository = rideRepository;
+        this.walletService = walletService;
     }
 
     public String bookRide(RideRequest request) {
@@ -131,9 +133,18 @@ public class RideService {
         }
 
         ride.setStatus("COMPLETED");
-        ride.setFareAmount(calculateFare(ride.getDistanceKm(), ride.getEtaMinutes()));
+
+        Double fare = calculateFare(ride.getDistanceKm(), ride.getEtaMinutes());
+        ride.setFareAmount(fare);
 
         rideRepository.save(ride);
+
+        walletService.processRidePayment(
+                ride.getRiderEmail(),
+                ride.getDriverEmail(),
+                ride.getId(),
+                fare
+        );
 
         return "Ride completed.";
     }

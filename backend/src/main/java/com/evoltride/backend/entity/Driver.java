@@ -22,6 +22,8 @@ public class Driver {
 
     private String password;
 
+    private Double walletBalance = 0.0;
+
     public Driver() {
     }
 
@@ -67,5 +69,13 @@ public class Driver {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Double getWalletBalance() {
+        return walletBalance;
+    }
+
+    public void setWalletBalance(Double walletBalance) {
+        this.walletBalance = walletBalance;
     }
 }

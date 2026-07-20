@@ -21,7 +21,9 @@ function DriverDashboard() {
 
       <br /><br />
 
-      <button>Earnings</button>
+      <Link to="/driver/earnings">
+        <button>Earnings</button>
+      </Link>
 
       <br /><br />
 
