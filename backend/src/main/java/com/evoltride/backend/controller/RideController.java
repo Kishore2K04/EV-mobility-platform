@@ -37,6 +37,11 @@ public class RideController {
         return rideService.getDriverRides(email);
     }
 
+    @GetMapping("/{rideId}")
+    public Ride getRideById(@PathVariable Long rideId) {
+        return rideService.getRideById(rideId);
+    }
+
     @PutMapping("/accept/{rideId}")
     public String acceptRide(@PathVariable Long rideId,
                               @RequestParam String driverEmail) {
@@ -56,5 +61,12 @@ public class RideController {
     @PutMapping("/complete/{rideId}")
     public String completeRide(@PathVariable Long rideId) {
         return rideService.completeRide(rideId);
+    }
+
+    @PutMapping("/location/{rideId}")
+    public String updateDriverLocation(@PathVariable Long rideId,
+                                        @RequestParam Double lat,
+                                        @RequestParam Double lng) {
+        return rideService.updateDriverLocation(rideId, lat, lng);
     }
 }

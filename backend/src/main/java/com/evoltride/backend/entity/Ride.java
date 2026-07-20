@@ -20,6 +20,18 @@ public class Ride {
 
     private String status;
 
+    private Double pickupLat;
+    private Double pickupLng;
+
+    private Double destinationLat;
+    private Double destinationLng;
+
+    private Double distanceKm;
+    private Integer etaMinutes;
+
+    private Double driverLat;
+    private Double driverLng;
+
     public Ride() {
     }
 
@@ -65,5 +77,69 @@ public class Ride {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Double getPickupLat() {
+        return pickupLat;
+    }
+
+    public void setPickupLat(Double pickupLat) {
+        this.pickupLat = pickupLat;
+    }
+
+    public Double getPickupLng() {
+        return pickupLng;
+    }
+
+    public void setPickupLng(Double pickupLng) {
+        this.pickupLng = pickupLng;
+    }
+
+    public Double getDestinationLat() {
+        return destinationLat;
+    }
+
+    public void setDestinationLat(Double destinationLat) {
+        this.destinationLat = destinationLat;
+    }
+
+    public Double getDestinationLng() {
+        return destinationLng;
+    }
+
+    public void setDestinationLng(Double destinationLng) {
+        this.destinationLng = destinationLng;
+    }
+
+    public Double getDistanceKm() {
+        return distanceKm;
+    }
+
+    public void setDistanceKm(Double distanceKm) {
+        this.distanceKm = distanceKm;
+    }
+
+    public Integer getEtaMinutes() {
+        return etaMinutes;
+    }
+
+    public void setEtaMinutes(Integer etaMinutes) {
+        this.etaMinutes = etaMinutes;
+    }
+
+    public Double getDriverLat() {
+        return driverLat;
+    }
+
+    public void setDriverLat(Double driverLat) {
+        this.driverLat = driverLat;
+    }
+
+    public Double getDriverLng() {
+        return driverLng;
+    }
+
+    public void setDriverLng(Double driverLng) {
+        this.driverLng = driverLng;
     }
 }

@@ -68,6 +68,38 @@ function DriverMyRides() {
 
     }
 
+    function shareLocation(rideId) {
+
+        if (!navigator.geolocation) {
+            setMessage("Geolocation is not supported on this browser.");
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(async (position) => {
+
+            try {
+
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+
+                const response = await api.put(
+                    `/api/rides/location/${rideId}?lat=${lat}&lng=${lng}`
+                );
+
+                setMessage(response.data);
+
+            } catch (error) {
+
+                setMessage("Failed to share location.");
+
+            }
+
+        }, () => {
+            setMessage("Location permission denied.");
+        });
+
+    }
+
     return (
         <div style={{ padding: "30px" }}>
 
@@ -90,9 +122,15 @@ function DriverMyRides() {
                     )}
 
                     {ride.status === "STARTED" && (
-                        <button onClick={() => completeRide(ride.id)}>
-                            Complete Ride
-                        </button>
+                        <>
+                            <button onClick={() => completeRide(ride.id)}>
+                                Complete Ride
+                            </button>
+                            &nbsp;
+                            <button onClick={() => shareLocation(ride.id)}>
+                                Share My Location
+                            </button>
+                        </>
                     )}
 
                     <hr />

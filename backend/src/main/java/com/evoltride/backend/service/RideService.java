@@ -32,6 +32,13 @@ public class RideService {
         ride.setDestination(request.getDestination());
         ride.setStatus("REQUESTED");
 
+        ride.setPickupLat(request.getPickupLat());
+        ride.setPickupLng(request.getPickupLng());
+        ride.setDestinationLat(request.getDestinationLat());
+        ride.setDestinationLng(request.getDestinationLng());
+        ride.setDistanceKm(request.getDistanceKm());
+        ride.setEtaMinutes(request.getEtaMinutes());
+
         rideRepository.save(ride);
 
         return "Ride booked successfully.";
@@ -47,6 +54,10 @@ public class RideService {
 
     public List<Ride> getDriverRides(String driverEmail) {
         return rideRepository.findByDriverEmail(driverEmail);
+    }
+
+    public Ride getRideById(Long rideId) {
+        return rideRepository.findById(rideId).orElse(null);
     }
 
     public String acceptRide(Long rideId, String driverEmail) {
@@ -120,5 +131,21 @@ public class RideService {
         rideRepository.save(ride);
 
         return "Ride completed.";
+    }
+
+    public String updateDriverLocation(Long rideId, Double lat, Double lng) {
+
+        Ride ride = rideRepository.findById(rideId).orElse(null);
+
+        if (ride == null) {
+            return "Ride not found.";
+        }
+
+        ride.setDriverLat(lat);
+        ride.setDriverLng(lng);
+
+        rideRepository.save(ride);
+
+        return "Location updated.";
     }
 }

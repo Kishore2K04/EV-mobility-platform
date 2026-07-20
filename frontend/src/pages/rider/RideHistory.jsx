@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import api from "../../api/api";
 
 function RideHistory() {
@@ -42,6 +43,12 @@ function RideHistory() {
                     <p><b>Destination:</b> {ride.destination}</p>
                     <p><b>Status:</b> {ride.status}</p>
 <p><b>Driver:</b> {ride.driverEmail ? ride.driverEmail : "Not assigned yet"}</p>
+{ride.distanceKm && (
+    <p><b>Distance:</b> {ride.distanceKm} km &nbsp; <b>ETA:</b> {ride.etaMinutes} mins</p>
+)}
+{(ride.status === "ACCEPTED" || ride.status === "STARTED") && (
+    <Link to={`/rider/track/${ride.id}`}>Track Driver</Link>
+)}
                     <hr />
                 </div>
             ))}

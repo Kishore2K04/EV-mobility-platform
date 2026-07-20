@@ -6,6 +6,14 @@ public class RideRequest {
     private String pickupLocation;
     private String destination;
 
+    private Double pickupLat;
+    private Double pickupLng;
+    private Double destinationLat;
+    private Double destinationLng;
+
+    private Double distanceKm;
+    private Integer etaMinutes;
+
     public RideRequest() {
     }
 
@@ -31,5 +39,53 @@ public class RideRequest {
 
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    public Double getPickupLat() {
+        return pickupLat;
+    }
+
+    public void setPickupLat(Double pickupLat) {
+        this.pickupLat = pickupLat;
+    }
+
+    public Double getPickupLng() {
+        return pickupLng;
+    }
+
+    public void setPickupLng(Double pickupLng) {
+        this.pickupLng = pickupLng;
+    }
+
+    public Double getDestinationLat() {
+        return destinationLat;
+    }
+
+    public void setDestinationLat(Double destinationLat) {
+        this.destinationLat = destinationLat;
+    }
+
+    public Double getDestinationLng() {
+        return destinationLng;
+    }
+
+    public void setDestinationLng(Double destinationLng) {
+        this.destinationLng = destinationLng;
+    }
+
+    public Double getDistanceKm() {
+        return distanceKm;
+    }
+
+    public void setDistanceKm(Double distanceKm) {
+        this.distanceKm = distanceKm;
+    }
+
+    public Integer getEtaMinutes() {
+        return etaMinutes;
+    }
+
+    public void setEtaMinutes(Integer etaMinutes) {
+        this.etaMinutes = etaMinutes;
     }
 }
