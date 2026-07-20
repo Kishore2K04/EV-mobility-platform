@@ -9,11 +9,13 @@ import RideHistory from "./pages/rider/RideHistory";
 import TrackRide from "./pages/rider/TrackRide";
 import TripSummary from "./pages/rider/TripSummary";
 import RiderWallet from "./pages/rider/RiderWallet";
+import RateRide from "./pages/rider/RateRide";
 import DriverRegister from "./pages/driver/Register";
 import DriverDashboard from "./pages/driver/DriverDashboard";
 import DriverRideRequests from "./pages/driver/DriverRideRequests";
 import DriverMyRides from "./pages/driver/DriverMyRides";
 import DriverEarnings from "./pages/driver/DriverEarnings";
+import DriverReviews from "./pages/driver/DriverReviews";
 
 function App() {
   return (
@@ -29,9 +31,11 @@ function App() {
       <Route path="/rider/track/:rideId" element={<TrackRide />} />
       <Route path="/rider/summary/:rideId" element={<TripSummary />} />
       <Route path="/rider/wallet" element={<RiderWallet />} />
+      <Route path="/rider/rate/:rideId" element={<RateRide />} />
       <Route path="/driver/requests" element={<DriverRideRequests />} />
       <Route path="/driver/myrides" element={<DriverMyRides />} />
       <Route path="/driver/earnings" element={<DriverEarnings />} />
+      <Route path="/driver/reviews" element={<DriverReviews />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );

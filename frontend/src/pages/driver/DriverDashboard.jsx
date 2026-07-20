@@ -27,6 +27,12 @@ function DriverDashboard() {
 
       <br /><br />
 
+      <Link to="/driver/reviews">
+        <button>Ratings & Reviews</button>
+      </Link>
+
+      <br /><br />
+
       <button>Logout</button>
     </div>
   );

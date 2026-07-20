@@ -50,6 +50,14 @@ function TripSummary() {
 
             <br />
 
+            {ride.status === "COMPLETED" && !ride.rated && (
+                <Link to={`/rider/rate/${ride.id}`}>Rate This Ride</Link>
+            )}
+
+            {ride.rated && <p>You have already rated this ride. Thank you!</p>}
+
+            <br /><br />
+
             <Link to="/rider/history">Back to Ride History</Link>
 
         </div>

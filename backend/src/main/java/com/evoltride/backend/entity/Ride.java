@@ -23,6 +23,7 @@ public class Ride {
     private Double pickupLat;
     private Double pickupLng;
     private Double fareAmount;
+    private Boolean rated = false;
 
     private Double destinationLat;
     private Double destinationLng;
@@ -149,5 +150,12 @@ public class Ride {
 
     public void setFareAmount(Double fareAmount) {
         this.fareAmount = fareAmount;
+    }
+    public Boolean getRated() {
+        return rated;
+    }
+
+    public void setRated(Boolean rated) {
+        this.rated = rated;
     }
 }
