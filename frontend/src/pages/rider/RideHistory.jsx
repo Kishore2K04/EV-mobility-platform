@@ -41,6 +41,7 @@ function RideHistory() {
                     <p><b>Pickup:</b> {ride.pickupLocation}</p>
                     <p><b>Destination:</b> {ride.destination}</p>
                     <p><b>Status:</b> {ride.status}</p>
+<p><b>Driver:</b> {ride.driverEmail ? ride.driverEmail : "Not assigned yet"}</p>
                     <hr />
                 </div>
             ))}

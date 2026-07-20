@@ -26,4 +26,20 @@ public class RideController {
     public List<Ride> getRideHistory(@PathVariable String email) {
         return rideService.getRideHistory(email);
     }
+
+    @GetMapping("/pending")
+    public List<Ride> getPendingRides() {
+        return rideService.getPendingRides();
+    }
+
+    @PutMapping("/accept/{rideId}")
+    public String acceptRide(@PathVariable Long rideId,
+                              @RequestParam String driverEmail) {
+        return rideService.acceptRide(rideId, driverEmail);
+    }
+
+    @PutMapping("/reject/{rideId}")
+    public String rejectRide(@PathVariable Long rideId) {
+        return rideService.rejectRide(rideId);
+    }
 }

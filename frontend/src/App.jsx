@@ -8,6 +8,7 @@ import RiderProfile from "./pages/rider/RiderProfile";
 import RideHistory from "./pages/rider/RideHistory";
 import DriverRegister from "./pages/driver/Register";
 import DriverDashboard from "./pages/driver/DriverDashboard";
+import DriverRideRequests from "./pages/driver/DriverRideRequests";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/driver/dashboard" element={<DriverDashboard />} />
       <Route path="/rider/profile" element={<RiderProfile />} />
       <Route path="/rider/history" element={<RideHistory />} />
+      <Route path="/driver/requests" element={<DriverRideRequests />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );

@@ -12,6 +12,8 @@ public class Ride {
 
     private String riderEmail;
 
+    private String driverEmail;
+
     private String pickupLocation;
 
     private String destination;
@@ -31,6 +33,14 @@ public class Ride {
 
     public void setRiderEmail(String riderEmail) {
         this.riderEmail = riderEmail;
+    }
+
+    public String getDriverEmail() {
+        return driverEmail;
+    }
+
+    public void setDriverEmail(String driverEmail) {
+        this.driverEmail = driverEmail;
     }
 
     public String getPickupLocation() {

@@ -40,4 +40,43 @@ public class RideService {
     public List<Ride> getRideHistory(String email) {
         return rideRepository.findByRiderEmail(email);
     }
+
+    public List<Ride> getPendingRides() {
+        return rideRepository.findByStatus("REQUESTED");
+    }
+
+    public String acceptRide(Long rideId, String driverEmail) {
+
+        Ride ride = rideRepository.findById(rideId).orElse(null);
+
+        if (ride == null) {
+            return "Ride not found.";
+        }
+
+        if (!ride.getStatus().equals("REQUESTED")) {
+            return "This ride is no longer available.";
+        }
+
+        ride.setDriverEmail(driverEmail);
+        ride.setStatus("ACCEPTED");
+
+        rideRepository.save(ride);
+
+        return "Ride accepted successfully.";
+    }
+
+    public String rejectRide(Long rideId) {
+
+        Ride ride = rideRepository.findById(rideId).orElse(null);
+
+        if (ride == null) {
+            return "Ride not found.";
+        }
+
+        ride.setStatus("REJECTED");
+
+        rideRepository.save(ride);
+
+        return "Ride rejected.";
+    }
 }

@@ -12,4 +12,6 @@ public interface RideRepository extends JpaRepository<Ride, Long> {
 
     List<Ride> findByRiderEmail(String riderEmail);
 
+    List<Ride> findByStatus(String status);
+
 }

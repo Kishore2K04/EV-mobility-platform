@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function DriverDashboard() {
   return (
     <div>
@@ -7,7 +9,9 @@ function DriverDashboard() {
 
       <br /><br />
 
-      <button>Ride Requests</button>
+      <Link to="/driver/requests">
+        <button>Ride Requests</button>
+      </Link>
 
       <br /><br />
 
