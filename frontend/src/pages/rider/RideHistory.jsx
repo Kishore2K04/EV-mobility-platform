@@ -46,8 +46,14 @@ function RideHistory() {
 {ride.distanceKm && (
     <p><b>Distance:</b> {ride.distanceKm} km &nbsp; <b>ETA:</b> {ride.etaMinutes} mins</p>
 )}
+{ride.fareAmount && (
+    <p><b>Fare:</b> ₹{ride.fareAmount}</p>
+)}
 {(ride.status === "ACCEPTED" || ride.status === "STARTED") && (
     <Link to={`/rider/track/${ride.id}`}>Track Driver</Link>
+)}
+{ride.status === "COMPLETED" && (
+    <Link to={`/rider/summary/${ride.id}`}>View Trip Summary</Link>
 )}
                     <hr />
                 </div>

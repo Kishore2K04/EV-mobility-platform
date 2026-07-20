@@ -7,6 +7,7 @@ import RiderDashboard from "./pages/rider/RiderDashboard";
 import RiderProfile from "./pages/rider/RiderProfile";
 import RideHistory from "./pages/rider/RideHistory";
 import TrackRide from "./pages/rider/TrackRide";
+import TripSummary from "./pages/rider/TripSummary";
 import DriverRegister from "./pages/driver/Register";
 import DriverDashboard from "./pages/driver/DriverDashboard";
 import DriverRideRequests from "./pages/driver/DriverRideRequests";
@@ -24,6 +25,7 @@ function App() {
       <Route path="/rider/profile" element={<RiderProfile />} />
       <Route path="/rider/history" element={<RideHistory />} />
       <Route path="/rider/track/:rideId" element={<TrackRide />} />
+      <Route path="/rider/summary/:rideId" element={<TripSummary />} />
       <Route path="/driver/requests" element={<DriverRideRequests />} />
       <Route path="/driver/myrides" element={<DriverMyRides />} />
       <Route path="*" element={<Navigate to="/" />} />

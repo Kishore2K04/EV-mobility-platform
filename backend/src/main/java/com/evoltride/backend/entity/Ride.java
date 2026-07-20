@@ -22,6 +22,7 @@ public class Ride {
 
     private Double pickupLat;
     private Double pickupLng;
+    private Double fareAmount;
 
     private Double destinationLat;
     private Double destinationLng;
@@ -141,5 +142,12 @@ public class Ride {
 
     public void setDriverLng(Double driverLng) {
         this.driverLng = driverLng;
+    }
+    public Double getFareAmount() {
+        return fareAmount;
+    }
+
+    public void setFareAmount(Double fareAmount) {
+        this.fareAmount = fareAmount;
     }
 }

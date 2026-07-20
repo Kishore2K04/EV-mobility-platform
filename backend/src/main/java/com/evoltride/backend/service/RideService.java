@@ -10,6 +10,10 @@ import java.util.List;
 @Service
 public class RideService {
 
+    private static final double BASE_FARE = 30.0;
+    private static final double PER_KM_RATE = 8.0;
+    private static final double PER_MINUTE_RATE = 1.5;
+
     private final RideRepository rideRepository;
 
     public RideService(RideRepository rideRepository) {
@@ -127,6 +131,7 @@ public class RideService {
         }
 
         ride.setStatus("COMPLETED");
+        ride.setFareAmount(calculateFare(ride.getDistanceKm(), ride.getEtaMinutes()));
 
         rideRepository.save(ride);
 
@@ -147,5 +152,15 @@ public class RideService {
         rideRepository.save(ride);
 
         return "Location updated.";
+    }
+
+    private Double calculateFare(Double distanceKm, Integer etaMinutes) {
+
+        double distance = (distanceKm != null) ? distanceKm : 0.0;
+        double eta = (etaMinutes != null) ? etaMinutes : 0.0;
+
+        double fare = BASE_FARE + (distance * PER_KM_RATE) + (eta * PER_MINUTE_RATE);
+
+        return Math.round(fare * 100.0) / 100.0;
     }
 }
