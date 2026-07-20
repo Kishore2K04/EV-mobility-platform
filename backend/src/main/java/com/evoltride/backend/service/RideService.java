@@ -45,6 +45,10 @@ public class RideService {
         return rideRepository.findByStatus("REQUESTED");
     }
 
+    public List<Ride> getDriverRides(String driverEmail) {
+        return rideRepository.findByDriverEmail(driverEmail);
+    }
+
     public String acceptRide(Long rideId, String driverEmail) {
 
         Ride ride = rideRepository.findById(rideId).orElse(null);
@@ -78,5 +82,43 @@ public class RideService {
         rideRepository.save(ride);
 
         return "Ride rejected.";
+    }
+
+    public String startRide(Long rideId) {
+
+        Ride ride = rideRepository.findById(rideId).orElse(null);
+
+        if (ride == null) {
+            return "Ride not found.";
+        }
+
+        if (!ride.getStatus().equals("ACCEPTED")) {
+            return "Ride cannot be started from its current status.";
+        }
+
+        ride.setStatus("STARTED");
+
+        rideRepository.save(ride);
+
+        return "Ride started.";
+    }
+
+    public String completeRide(Long rideId) {
+
+        Ride ride = rideRepository.findById(rideId).orElse(null);
+
+        if (ride == null) {
+            return "Ride not found.";
+        }
+
+        if (!ride.getStatus().equals("STARTED")) {
+            return "Ride cannot be completed from its current status.";
+        }
+
+        ride.setStatus("COMPLETED");
+
+        rideRepository.save(ride);
+
+        return "Ride completed.";
     }
 }

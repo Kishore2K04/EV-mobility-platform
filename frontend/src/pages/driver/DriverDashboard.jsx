@@ -15,6 +15,12 @@ function DriverDashboard() {
 
       <br /><br />
 
+      <Link to="/driver/myrides">
+        <button>My Rides</button>
+      </Link>
+
+      <br /><br />
+
       <button>Earnings</button>
 
       <br /><br />
