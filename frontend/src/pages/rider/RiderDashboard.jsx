@@ -144,6 +144,12 @@ function RiderDashboard() {
             <Link to="/rider/history">View Ride History</Link>
             <br /><br />
             <Link to="/rider/wallet">View Wallet</Link>
+            <br /><br />
+            <button onClick={() => {
+            localStorage.removeItem("userEmail");
+            localStorage.removeItem("userRole");
+            window.location.href = "/login";
+            }}>Logout</button>
 
         </div>
 

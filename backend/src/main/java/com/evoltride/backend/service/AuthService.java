@@ -6,6 +6,7 @@ import com.evoltride.backend.entity.Driver;
 import com.evoltride.backend.entity.Rider;
 import com.evoltride.backend.repository.DriverRepository;
 import com.evoltride.backend.repository.RiderRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -15,11 +16,14 @@ public class AuthService {
 
     private final RiderRepository riderRepository;
     private final DriverRepository driverRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public AuthService(RiderRepository riderRepository,
-                       DriverRepository driverRepository) {
+                        DriverRepository driverRepository,
+                        PasswordEncoder passwordEncoder) {
         this.riderRepository = riderRepository;
         this.driverRepository = driverRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public LoginResponse login(LoginRequest request) {
@@ -28,7 +32,7 @@ public class AuthService {
                 riderRepository.findByEmail(request.getEmail());
 
         if (rider.isPresent()
-                && rider.get().getPassword().equals(request.getPassword())) {
+                && passwordEncoder.matches(request.getPassword(), rider.get().getPassword())) {
 
             return new LoginResponse(
                     "Login Successful",
@@ -42,7 +46,7 @@ public class AuthService {
                 driverRepository.findByEmail(request.getEmail());
 
         if (driver.isPresent()
-                && driver.get().getPassword().equals(request.getPassword())) {
+                && passwordEncoder.matches(request.getPassword(), driver.get().getPassword())) {
 
             return new LoginResponse(
                     "Login Successful",

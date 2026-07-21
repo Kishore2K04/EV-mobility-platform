@@ -1,6 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function DriverDashboard() {
+
+  const navigate = useNavigate();
+
+  function logout() {
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userRole");
+    navigate("/login");
+  }
+
   return (
     <div>
       <h1>Welcome Driver 🚗</h1>
@@ -33,7 +42,7 @@ function DriverDashboard() {
 
       <br /><br />
 
-      <button>Logout</button>
+      <button onClick={logout}>Logout</button>
     </div>
   );
 }
