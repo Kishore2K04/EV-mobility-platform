@@ -16,6 +16,12 @@ import DriverRideRequests from "./pages/driver/DriverRideRequests";
 import DriverMyRides from "./pages/driver/DriverMyRides";
 import DriverEarnings from "./pages/driver/DriverEarnings";
 import DriverReviews from "./pages/driver/DriverReviews";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminUsers from "./pages/admin/AdminUsers";
+import AdminDrivers from "./pages/admin/AdminDrivers";
+import AdminRides from "./pages/admin/AdminRides";
+import AdminAnalytics from "./pages/admin/AdminAnalytics";
 
 function App() {
   return (
@@ -36,6 +42,12 @@ function App() {
       <Route path="/driver/myrides" element={<DriverMyRides />} />
       <Route path="/driver/earnings" element={<DriverEarnings />} />
       <Route path="/driver/reviews" element={<DriverReviews />} />
+      <Route path="/admin/login" element={<AdminLogin />} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
+      <Route path="/admin/users" element={<AdminUsers />} />
+      <Route path="/admin/drivers" element={<AdminDrivers />} />
+      <Route path="/admin/rides" element={<AdminRides />} />
+      <Route path="/admin/analytics" element={<AdminAnalytics />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
