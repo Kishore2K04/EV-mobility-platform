@@ -85,3 +85,17 @@ See Sprint 12 deployment notes for full steps.
 
 ## Roadmap Beyond v1
 Future versions may explore: JWT authentication, admin account management, surge pricing, push notifications, and native mobile apps.
+
+## 📄 License
+
+MIT License
+
+---
+
+## 👨‍💻 Author
+
+Developed by **Kishore S**
+
+Computer Science Engineering Student
+
+AI & Full-Stack Developer
